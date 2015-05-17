@@ -1,6 +1,6 @@
 FROM tutum/apache-php
 
-ENV PIWIK_VERSION 2.12.1
+ENV PIWIK_VERSION 2.13.1
 
 RUN apt-get update && \
     apt-get install -y rsync && \
