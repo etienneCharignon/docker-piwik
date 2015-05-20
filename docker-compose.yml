@@ -1,0 +1,21 @@
+piwikdata:
+  image: busybox
+  volumes:
+    - /var/lib/mysql
+    - /app/config
+
+piwikmysql:
+  image: mysql:5.6
+  volumes_from:
+    - piwikdata
+  environment:
+    MYSQL_ROOT_PASSWORD: secret
+
+piwik:
+  image: etiennecharignon/docker-piwik
+  ports:
+    - 80:80
+  volumes_from:
+    - piwikdata
+  links:
+    - piwikmysql
