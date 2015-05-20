@@ -10,6 +10,7 @@ RUN curl -L -O http://builds.piwik.org/piwik-${PIWIK_VERSION}.tar.gz && \
     tar --strip 1 -xzf piwik-${PIWIK_VERSION}.tar.gz && \
     rm piwik-${PIWIK_VERSION}.tar.gz
 RUN chown -R www-data:www-data /app
+RUN chmod -R a-w /app
 RUN chmod a+w /app/config
 RUN cp -r /app/config /app/config-orig
 
